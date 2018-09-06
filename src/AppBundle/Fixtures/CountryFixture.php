@@ -33,8 +33,12 @@ class CountryFixture extends AbstractFixture implements FixtureInterface
         $countriesCode = array_keys(Intl::getRegionBundle()->getCountryNames());
 
         foreach ($countriesCode as $countryCode) {
-            $country = new Country($countryCode);
+            $country = new Country();
 
+            if ($countryCode === "US") {
+                continue;
+            }
+            $country->setCode($countryCode);
             $this->countryManager->persist($country);
         }
 
