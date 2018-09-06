@@ -1,0 +1,9 @@
+#Babcia testing
+
+babcia_index:
+    path: /test
+    controller: AppBundle\Controller\BabciaController::index
+
+babcia_index2:
+    path: /test2
+    controller: AppBundle\Controller\BabciaController:index2
