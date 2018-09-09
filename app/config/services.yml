@@ -35,3 +35,7 @@ services:
     app.fixture.country:
         class: AppBundle\Fixtures\CountryFixture
         tags: ["sylius_fixtures.fixture"]
+
+    AppBundle\EventListener\ProductCreateListener:
+        tags:
+        - { name: kernel.event_listener, event: app.product.create }
