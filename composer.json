@@ -21,6 +21,9 @@
     ],
     "require": {
         "php": "^7.1",
+        "aws/aws-sdk-php": "^3.0",
+        "knplabs/gaufrette": "^0.7.0",
+        "knplabs/knp-gaufrette-bundle": "~0.5",
         "sylius/fixtures-bundle": "^1.2",
         "sylius/sylius": "~1.2.3",
         "symfony/symfony": "^3.4|^4.1"

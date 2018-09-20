@@ -1,5 +1,7 @@
 parameters:
     #parameter_name: value
+    amazon_key: '%env(AMAZON_KEY)%'
+    amazon_secret: '%env(AMAZON_SECRET)%'
 
 services:
     # default configuration for services in *this* file
@@ -39,3 +41,13 @@ services:
     AppBundle\EventListener\ProductCreateListener:
         tags:
         - { name: kernel.event_listener, event: app.product.create }
+
+    AppBundle\Services\Aws\AmazonAwsS3Service:
+        arguments:
+            $bucket : "demo"
+            $s3arguments:
+                credentials:
+                    key: "%amazon_key%"
+                    secret: "%amazon_secret%"
+                region: "eu-central-1"
+                version: latest

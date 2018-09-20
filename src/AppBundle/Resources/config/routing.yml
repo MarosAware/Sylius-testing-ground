@@ -8,6 +8,10 @@ babcia_index2:
     path: /test2
     controller: AppBundle\Controller\BabciaController:index2
 
+babcia_index3:
+    path: /test3
+    controller: AppBundle\Controller\BabciaController:index3
+
 product_create:
     path: /create
     controller: AppBundle\Controller\ProductController::create
