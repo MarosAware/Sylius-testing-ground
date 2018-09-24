@@ -81,3 +81,23 @@ sylius_fixtures:
                 country: # Fixture name as a key
                     priority: 0 # The higher priority is, the sooner the fixture will be executed
 
+
+knp_gaufrette:
+    adapters:
+        profile_photos:
+            aws_s3:
+                service_id: 'acme.aws_s3.client'
+                bucket_name: 'demo'
+                detect_content_type: true
+                options:
+                    directory: 'profile_photos'
+    filesystems:
+        profile_photos:
+            adapter:    profile_photos
+            alias:      profile_photos_filesystem
+
+sylius_customer:
+    resources:
+        customer:
+            classes:
+                controller: AppBundle\Controller\CustomerController

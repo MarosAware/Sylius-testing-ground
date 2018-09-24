@@ -1,0 +1,12 @@
+<h6>Hello in login form:</h6>
+
+<p>{{ dump(last_username) }}</p>
+<p>{{ dump(error) }}</p>
+
+<form action="{{ path('sylius_shop_login_check') }}" method="post">
+    <input type="text" name="_username">
+    <input type="password" name="_password">
+    <input type="checkbox" name="_remember_me">
+    <input type="hidden" name="_csrf_shop_security_token" value="{{ token }}">
+    <input type="submit" value="Submit">
+</form>

@@ -42,12 +42,28 @@ services:
         tags:
         - { name: kernel.event_listener, event: app.product.create }
 
-    AppBundle\Services\Aws\AmazonAwsS3Service:
+#    AppBundle\Services\Aws\AmazonAwsS3Service:
+#        arguments:
+#            $bucket : "demo"
+#            $s3arguments:
+#                credentials:
+#                    key: "%amazon_key%"
+#                    secret: "%amazon_secret%"
+#                region: "eu-central-1"
+#                version: latest
+    acme.aws_s3.client:
+        class: Aws\S3\S3Client
+        factory: [Aws\S3\S3Client, 'factory']
         arguments:
-            $bucket : "demo"
-            $s3arguments:
-                credentials:
-                    key: "%amazon_key%"
-                    secret: "%amazon_secret%"
-                region: "eu-central-1"
-                version: latest
+            -
+              version: latest
+              region: 'eu-central-1'
+              credentials:
+                  key: '%amazon_key%'
+                  secret: '%amazon_secret%'
+
+    AppBundle\Controller\CustomerController:
+        autowire: false
+
+    sylius.controller.security:
+        class: AppBundle\Controller\SecurityController
